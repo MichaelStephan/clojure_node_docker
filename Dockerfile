@@ -45,5 +45,5 @@ RUN wget -q -O /usr/bin/lein \
 RUN useradd -ms /bin/bash dev 
 USER dev 
 
-WORKDIR /home/dev/work
+WORKDIR /home/dev
 CMD /bin/bash
