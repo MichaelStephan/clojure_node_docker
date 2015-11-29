@@ -1,7 +1,7 @@
 FROM ubuntu:latest 
  
 RUN apt-get update \
-      && apt-get install -y curl
+      && apt-get install -y curl vim
 
 # gpg keys listed at https://github.com/nodejs/node
 RUN set -ex \
