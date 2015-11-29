@@ -1,0 +1,1 @@
+docker rm clojure_node_docker

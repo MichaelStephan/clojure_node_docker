@@ -1,1 +1,1 @@
-docker exec clojure_node_docker -i -t /bin/bash
+docker exec -i -t clojure_node_docker /bin/bash

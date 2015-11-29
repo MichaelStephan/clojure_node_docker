@@ -42,4 +42,8 @@ RUN wget -q -O /usr/bin/lein \
     https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein \
     && chmod +x /usr/bin/lein
 
+RUN useradd -ms /bin/bash dev 
+USER dev 
+
+WORKDIR /home/dev/work
 CMD /bin/bash
