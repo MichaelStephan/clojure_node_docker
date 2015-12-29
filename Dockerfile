@@ -1,7 +1,7 @@
 FROM ubuntu:latest 
  
 RUN apt-get update \
-      && apt-get install -y curl vim
+      && apt-get install -y curl vim git
 
 # gpg keys listed at https://github.com/nodejs/node
 RUN set -ex \
@@ -43,7 +43,14 @@ RUN wget -q -O /usr/bin/lein \
     && chmod +x /usr/bin/lein
 
 RUN useradd -ms /bin/bash dev 
+ADD profile.clj /home/dev/.lein/ 
+RUN chown -R dev:dev /home/dev/.lein 
+
 USER dev 
+RUN mkdir ~/.vim \
+      && mkdir ~/.vim/bundle \
+      && cd ~/.vim/bundle \
+      && git clone git://github.com/tpope/vim-fireplace.git
 
 WORKDIR /home/dev
 CMD /bin/bash
